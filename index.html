@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notte Rossa — Silent Night | CRI Jesi</title>
+  <meta name="description" content="Notte Rossa: la silent night della Croce Rossa di Jesi. Sabato 19 giugno 2026 — musica, cuffie, e tanto cuore." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red: #e3000f;
+      --red-dark: #9e000a;
+      --red-glow: rgba(227, 0, 15, 0.35);
+      --bg: #0a0a0a;
+      --bg-card: #111111;
+      --bg-card2: #161616;
+      --text: #f0f0f0;
+      --text-muted: #888;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 64px;
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--white);
+    }
+
+    .nav-emblem {
+      width: 40px; height: 40px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .nav-brand-text { font-size: 0.85rem; font-weight: 500; line-height: 1.2; }
+    .nav-brand-text span { display: block; color: var(--text-muted); font-weight: 300; font-size: 0.75rem; }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color .2s; }
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--red);
+      color: white;
+      padding: 0.5rem 1.25rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background .2s, transform .2s;
+    }
+    .nav-cta:hover { background: var(--red-dark); transform: translateY(-1px); }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: .3s; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 1.5rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 60%, rgba(227,0,15,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 80% 40% at 50% 100%, rgba(227,0,15,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-particles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--red);
+      opacity: 0;
+      animation: float-up linear infinite;
+    }
+
+    @keyframes float-up {
+      0%   { transform: translateY(0) scale(1); opacity: 0; }
+      10%  { opacity: 0.6; }
+      90%  { opacity: 0.2; }
+      100% { transform: translateY(-100vh) scale(0.3); opacity: 0; }
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(227,0,15,0.15);
+      border: 1px solid rgba(227,0,15,0.4);
+      color: #ff6b6b;
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      animation: fade-in 0.8s ease both;
+    }
+
+    .badge-dot {
+      width: 7px; height: 7px;
+      background: var(--red);
+      border-radius: 50%;
+      animation: pulse-dot 1.5s ease infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.5); opacity: 0.6; }
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(5rem, 18vw, 14rem);
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      text-shadow: 0 0 80px var(--red-glow), 0 0 160px rgba(227,0,15,0.15);
+      animation: fade-in 0.8s ease 0.2s both;
+      position: relative;
+    }
+
+    .hero-title .word-rossa {
+      color: var(--red);
+      display: block;
+      text-shadow: 0 0 60px var(--red-glow), 0 0 120px rgba(227,0,15,0.3);
+    }
+
+    .hero-sub {
+      font-size: clamp(0.9rem, 2vw, 1.15rem);
+      color: var(--text-muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-top: 1.5rem;
+      font-weight: 300;
+      animation: fade-in 0.8s ease 0.4s both;
+    }
+
+    .hero-date-row {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fade-in 0.8s ease 0.5s both;
+    }
+
+    .hero-date-pill {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 0.6rem 1.5rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .hero-date-pill svg { width: 16px; height: 16px; opacity: 0.6; }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fade-in 0.8s ease 0.7s both;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: white;
+      padding: 0.9rem 2.25rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background .2s, transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 24px var(--red-glow);
+    }
+    .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 8px 32px var(--red-glow); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      padding: 0.9rem 2.25rem;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 1rem;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.15);
+      transition: border-color .2s, color .2s, transform .2s;
+    }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.4); color: white; transform: translateY(-2px); }
+
+    .hero-org {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 2rem;
+      animation: fade-in 0.8s ease 0.6s both;
+    }
+    .hero-org-label { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
+    .hero-org-logo {
+      background: white;
+      border-radius: 8px;
+      padding: 0.35rem 0.75rem;
+      line-height: 0;
+    }
+    .hero-org-logo img { height: 30px; width: auto; display: block; }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      animation: fade-in 1s ease 1.2s both;
+    }
+
+    .scroll-hint-arrow {
+      width: 24px; height: 24px;
+      border-right: 2px solid var(--text-muted);
+      border-bottom: 2px solid var(--text-muted);
+      transform: rotate(45deg);
+      animation: bounce 1.5s ease infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: rotate(45deg) translateY(0); }
+      50% { transform: rotate(45deg) translateY(5px); }
+    }
+
+    /* ── COUNTDOWN ── */
+    #countdown {
+      padding: 5rem 1.5rem;
+      text-align: center;
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg-card) 100%);
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 480px;
+      margin: 0 auto 3rem;
+    }
+
+    .countdown-grid {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .countdown-unit {
+      background: var(--bg-card2);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      padding: 2rem 2.5rem;
+      min-width: 130px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .countdown-unit::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(227,0,15,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .countdown-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4.5rem;
+      line-height: 1;
+      color: var(--white);
+      display: block;
+      text-shadow: 0 0 30px var(--red-glow);
+    }
+
+    .countdown-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      padding: 6rem 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .headphone-icon {
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle at 40% 40%, rgba(227,0,15,0.2), transparent 70%),
+                  var(--bg-card2);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,0.08);
+      animation: pulse-glow 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 40px var(--red-glow); }
+      50% { box-shadow: 0 0 80px var(--red-glow), 0 0 160px rgba(227,0,15,0.1); }
+    }
+
+    .headphone-icon svg { width: 120px; height: 120px; fill: var(--red); }
+
+    .about-rings {
+      position: absolute;
+      inset: -30px;
+      border-radius: 50%;
+      border: 1px solid rgba(227,0,15,0.15);
+      animation: ring-expand 3s ease-in-out infinite;
+    }
+
+    .about-rings:nth-child(2) {
+      inset: -60px;
+      animation-delay: 1s;
+    }
+
+    @keyframes ring-expand {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 0.2; transform: scale(1.05); }
+    }
+
+    .about-content .section-label { text-align: left; }
+    .about-content .section-title { text-align: left; margin-bottom: 1.5rem; }
+
+    .about-text {
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .about-features {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .feature-icon {
+      width: 40px; height: 40px;
+      background: rgba(227,0,15,0.1);
+      border: 1px solid rgba(227,0,15,0.3);
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    .feature-icon svg { width: 20px; height: 20px; fill: var(--red); }
+
+    .feature-text strong { display: block; font-weight: 600; color: var(--white); margin-bottom: 0.2rem; }
+    .feature-text p { font-size: 0.9rem; color: var(--text-muted); }
+
+    /* ── INFO ── */
+    #info {
+      padding: 6rem 1.5rem;
+      background: var(--bg-card);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .info-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .info-header { text-align: center; margin-bottom: 4rem; }
+
+    .info-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .info-card {
+      background: var(--bg-card2);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: border-color .3s, transform .3s;
+    }
+
+    .info-card:hover { border-color: rgba(227,0,15,0.4); transform: translateY(-4px); }
+
+    .info-card-icon {
+      width: 48px; height: 48px;
+      background: rgba(227,0,15,0.12);
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .info-card-icon svg { width: 24px; height: 24px; fill: var(--red); }
+
+    .info-card h3 { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); margin-bottom: 0.5rem; }
+    .info-card p { font-size: 1.05rem; font-weight: 500; color: var(--white); }
+    .info-card small { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem; display: block; }
+
+    /* ── TICKET SECTION ── */
+    #tickets {
+      padding: 6rem 1.5rem;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .ticket-card {
+      background: var(--bg-card2);
+      border: 1px solid rgba(227,0,15,0.3);
+      border-radius: 24px;
+      padding: 3.5rem 3rem;
+      margin-top: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ticket-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--red), transparent);
+    }
+
+    .ticket-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(227,0,15,0.08), transparent 60%);
+      pointer-events: none;
+    }
+
+    .ticket-price-label { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+    .ticket-price {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 5rem;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .ticket-price sup { font-family: 'Inter', sans-serif; font-size: 1.5rem; font-weight: 600; vertical-align: top; margin-top: 1rem; margin-right: 0.2rem; }
+    .ticket-includes {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin: 2.5rem 0;
+      text-align: left;
+      max-width: 360px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .include-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .check-icon {
+      width: 20px; height: 20px;
+      background: rgba(227,0,15,0.15);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    .check-icon svg { width: 11px; height: 11px; fill: var(--red); }
+
+    .ticket-btn {
+      display: inline-block;
+      background: var(--red);
+      color: white;
+      padding: 1rem 3rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      text-decoration: none;
+      transition: background .2s, transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 24px var(--red-glow);
+      width: 100%;
+      max-width: 360px;
+    }
+    .ticket-btn:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 8px 32px var(--red-glow); }
+
+    .ticket-note { font-size: 0.8rem; color: var(--text-muted); margin-top: 1.25rem; }
+
+    /* ── FAQ ── */
+    #faq {
+      padding: 6rem 1.5rem;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .faq-header { text-align: center; margin-bottom: 3rem; }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1rem;
+      font-weight: 500;
+      font-family: inherit;
+      text-align: left;
+      padding: 1.25rem 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      transition: color .2s;
+    }
+    .faq-q:hover { color: var(--white); }
+
+    .faq-arrow {
+      width: 20px; height: 20px;
+      border-right: 2px solid var(--text-muted);
+      border-bottom: 2px solid var(--text-muted);
+      transform: rotate(45deg);
+      transition: transform .3s;
+      flex-shrink: 0;
+      margin-top: -4px;
+    }
+
+    .faq-item.open .faq-arrow { transform: rotate(-135deg); margin-top: 4px; }
+
+    .faq-a {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height .35s ease, padding .35s ease;
+      color: var(--text-muted);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .faq-item.open .faq-a { max-height: 300px; padding-bottom: 1.25rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg-card);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 4rem 1.5rem 2.5rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-brand { margin-bottom: 1.5rem; }
+    .footer-logo {
+      display: inline-block;
+      background: white;
+      border-radius: 10px;
+      padding: 0.6rem 1.1rem;
+      line-height: 0;
+    }
+    .footer-logo img { height: 44px; width: auto; display: block; }
+    .footer-desc { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; max-width: 340px; }
+
+    .footer-col h4 { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color .2s; }
+    .footer-col a:hover { color: var(--white); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copy { font-size: 0.8rem; color: var(--text-muted); }
+    .footer-copy a { color: var(--red); text-decoration: none; }
+
+    .footer-cri-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .footer-cri-badge img { width: 22px; height: 22px; object-fit: contain; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .about-visual { order: -1; }
+      .headphone-icon { width: 200px; height: 200px; }
+      .headphone-icon svg { width: 90px; height: 90px; }
+      .info-cards { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .footer-top > :first-child { grid-column: span 2; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .info-cards { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-top > :first-child { grid-column: span 1; }
+      .ticket-card { padding: 2.5rem 1.5rem; }
+      .countdown-unit { padding: 1.5rem; min-width: 100px; }
+      .countdown-num { font-size: 3.5rem; }
+
+      nav { padding: 0 1rem; }
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 64px; left: 0; right: 0;
+        background: rgba(10,10,10,0.97);
+        backdrop-filter: blur(16px);
+        padding: 1.5rem;
+        border-bottom: 1px solid rgba(255,255,255,0.07);
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .mobile-menu.open { display: flex; }
+      .mobile-menu a { color: var(--text); text-decoration: none; font-size: 1.1rem; padding: 0.5rem 0; }
+      .mobile-menu .btn-primary { text-align: center; padding: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="#" class="nav-brand">
+    <img src="img/Emblema_CRI.svg" class="nav-emblem" alt="Emblema Croce Rossa Italiana" />
+    <div class="nav-brand-text">
+      Notte Rossa
+      <span>CRI Jesi — Silent Night 2026</span>
+    </div>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#about">L'evento</a></li>
+    <li><a href="#info">Info</a></li>
+    <li><a href="#tickets">Biglietti</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+
+  <a href="#tickets" class="nav-cta">Acquista</a>
+
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about">L'evento</a>
+  <a href="#info">Info</a>
+  <a href="#tickets">Biglietti</a>
+  <a href="#faq">FAQ</a>
+  <a href="#tickets" class="btn-primary">Acquista ora</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-particles" id="particles"></div>
+
+  <div class="badge">
+    <span class="badge-dot"></span>
+    Silent Disco Night · 19 Giugno 2026
+  </div>
+
+  <h1 class="hero-title">
+    NOTTE<br>
+    <span class="word-rossa">ROSSA</span>
+  </h1>
+
+  <p class="hero-sub">La silent night della Croce Rossa di Jesi</p>
+
+  <div class="hero-date-row">
+    <div class="hero-date-pill">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 2v2H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-4V2h-2v2H10V2H8zm-4 6h16v10H4V8zm2 2v2h2v-2H6zm4 0v2h2v-2h-2zm4 0v2h2v-2h-2zM6 14v2h2v-2H6zm4 0v2h2v-2h-2z"/></svg>
+      Sabato 19 Giugno 2026
+    </div>
+    <div class="hero-date-pill">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 2a8 8 0 1 1 0 16A8 8 0 0 1 12 4zm-.5 3v6l4.5 2.7-.75 1.3L11 14.5V7h.5z"/></svg>
+      Dalle 21:00
+    </div>
+    <div class="hero-date-pill">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      Jesi (AN)
+    </div>
+  </div>
+
+  <div class="hero-org">
+    <span class="hero-org-label">Organizzato da</span>
+    <div class="hero-org-logo">
+      <img src="img/CRI_Jesi_Logo_Orizzontale.jpg" alt="Croce Rossa Italiana — Comitato di Jesi" />
+    </div>
+  </div>
+
+  <div class="hero-actions">
+    <a href="#tickets" class="btn-primary">Acquista il biglietto</a>
+    <a href="#about" class="btn-secondary">Scopri di più</a>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scorri</span>
+    <div class="scroll-hint-arrow"></div>
+  </div>
+</section>
+
+<!-- COUNTDOWN -->
+<section id="countdown">
+  <p class="section-label">Manca sempre meno</p>
+  <h2 class="section-title reveal">Il conto alla rovescia</h2>
+  <p class="section-sub reveal">Segna la data sul calendario — la notte più silenziosa (ma più viva) dell'anno si avvicina.</p>
+
+  <div class="countdown-grid reveal">
+    <div class="countdown-unit">
+      <span class="countdown-num" id="cd-days">—</span>
+      <div class="countdown-label">Giorni</div>
+    </div>
+    <div class="countdown-unit">
+      <span class="countdown-num" id="cd-hours">—</span>
+      <div class="countdown-label">Ore</div>
+    </div>
+    <div class="countdown-unit">
+      <span class="countdown-num" id="cd-minutes">—</span>
+      <div class="countdown-label">Minuti</div>
+    </div>
+    <div class="countdown-unit">
+      <span class="countdown-num" id="cd-seconds">—</span>
+      <div class="countdown-label">Secondi</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-visual">
+      <div class="about-rings"></div>
+      <div class="about-rings"></div>
+      <div class="headphone-icon">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 10C28.5 10 11 27.5 11 49v21a9 9 0 0 0 9 9h5a9 9 0 0 0 9-9V54a9 9 0 0 0-9-9h-4.4C22 31.5 34.6 20 50 20s28 11.5 29.4 25H75a9 9 0 0 0-9 9v16a9 9 0 0 0 9 9h5a9 9 0 0 0 9-9V49c0-21.5-17.5-39-39-39z"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="about-content">
+      <p class="section-label">Cos'è la Notte Rossa</p>
+      <h2 class="section-title">Musica ovunque,<br>silenzio intorno</h2>
+      <p class="about-text">
+        La <strong>Silent Disco</strong> è un'esperienza unica: ognuno riceve un paio di cuffie wireless e balla sulla propria frequenza preferita. Tre DJ, tre canali, una sola pista. Tu scegli la tua musica.
+      </p>
+      <p class="about-text">
+        La Croce Rossa di Jesi porta in città la sua prima <em>Notte Rossa</em>: una serata di musica, condivisione e solidarietà. Il ricavato supporta le attività del nostro comitato locale.
+      </p>
+
+      <div class="about-features">
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18A9 9 0 0 0 12 3zm-1 13v-2h2v2h-2zm2-4h-2V7h2v5z"/></svg>
+          </div>
+          <div class="feature-text">
+            <strong>3 canali musicali</strong>
+            <p>Scegli tra tre DJ e cambia quando vuoi durante la serata.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+          </div>
+          <div class="feature-text">
+            <strong>Sabato 19 giugno 2026</strong>
+            <p>Dalle 21:00 fino a notte fonda. Portati le scarpe comode.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 3h6v6h6v6h-6v6H9v-6H3v-6h6z"/></svg>
+          </div>
+          <div class="feature-text">
+            <strong>Evento di solidarietà</strong>
+            <p>Il ricavato va direttamente al Comitato CRI di Jesi.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO -->
+<section id="info">
+  <div class="info-inner">
+    <div class="info-header reveal">
+      <p class="section-label">Dettagli pratici</p>
+      <h2 class="section-title">Tutto quello che devi sapere</h2>
+    </div>
+
+    <div class="info-cards">
+      <div class="info-card reveal">
+        <div class="info-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+        </div>
+        <h3>Data</h3>
+        <p>Sabato 19 Giugno 2026</p>
+        <small>Dalle 21:00</small>
+      </div>
+      <div class="info-card reveal">
+        <div class="info-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </div>
+        <h3>Luogo</h3>
+        <p>Jesi (AN)</p>
+        <small>Location da confermare</small>
+      </div>
+      <div class="info-card reveal">
+        <div class="info-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18A9 9 0 0 0 12 3zm-1 13v-2h2v2h-2zm2-4h-2V7h2v5z"/></svg>
+        </div>
+        <h3>Età minima</h3>
+        <p>18+ anni</p>
+        <small>Documento obbligatorio</small>
+      </div>
+      <div class="info-card reveal">
+        <div class="info-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18A9 9 0 0 0 12 3zm4.59 12.59L11 10.41V5h2v4.59l5 5L16.59 15.59z"/></svg>
+        </div>
+        <h3>Apertura porte</h3>
+        <p>Ore 21:00</p>
+        <small>Si consiglia di arrivare con anticipo</small>
+      </div>
+      <div class="info-card reveal">
+        <div class="info-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+        </div>
+        <h3>Organizzatore</h3>
+        <p>CRI Comitato di Jesi</p>
+        <small>Croce Rossa Italiana</small>
+      </div>
+      <div class="info-card reveal">
+        <div class="info-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 2c2.76 0 5 2.24 5 5 0 3.53-4.12 8.64-5 9.88C11.12 17.64 7 12.53 7 9c0-2.76 2.24-5 5-5z"/></svg>
+        </div>
+        <h3>Cuffie</h3>
+        <p>Incluse nel biglietto</p>
+        <small>Wireless, 3 canali LED colorati</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKETS -->
+<section id="tickets">
+  <p class="section-label reveal">Prenota il tuo posto</p>
+  <h2 class="section-title reveal">Biglietti</h2>
+  <p class="section-sub reveal">Posti limitati — assicurati il tuo prima che finiscano.</p>
+
+  <div class="ticket-card reveal">
+    <p class="ticket-price-label">Ingresso + cuffie incluse</p>
+    <div class="ticket-price"><sup>€</sup>15</div>
+
+    <div class="ticket-includes">
+      <div class="include-item">
+        <div class="check-icon">
+          <svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        Cuffie wireless con 3 canali incluse
+      </div>
+      <div class="include-item">
+        <div class="check-icon">
+          <svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        Accesso alla serata dalle 21:00
+      </div>
+      <div class="include-item">
+        <div class="check-icon">
+          <svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        3 DJ set in simultanea
+      </div>
+      <div class="include-item">
+        <div class="check-icon">
+          <svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        Contribuisci alle attività CRI Jesi
+      </div>
+    </div>
+
+    <a href="#" class="ticket-btn">Acquista ora</a>
+    <p class="ticket-note">Link di prenotazione in arrivo · Rimani aggiornato sui nostri canali social</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="faq-header reveal">
+    <p class="section-label">Domande frequenti</p>
+    <h2 class="section-title">FAQ</h2>
+  </div>
+
+  <div class="faq-item reveal">
+    <button class="faq-q">
+      Cos'è una silent disco?
+      <div class="faq-arrow"></div>
+    </button>
+    <div class="faq-a">Una silent disco è una festa in cui la musica viene trasmessa via radio alle cuffie wireless dei partecipanti invece che dagli altoparlanti. Ogni partecipante riceve un paio di cuffie con più canali, ognuno corrispondente a un DJ diverso, e può scegliere quale ascoltare in qualsiasi momento. Chi non indossa le cuffie sente solo il silenzio — da qui il nome "silent".</div>
+  </div>
+
+  <div class="faq-item reveal">
+    <button class="faq-q">
+      Devo portare le cuffie da casa?
+      <div class="faq-arrow"></div>
+    </button>
+    <div class="faq-a">No! Le cuffie wireless sono incluse nel prezzo del biglietto. Ti verranno consegnate all'ingresso e potrai usarle per tutta la serata. Al termine dell'evento ti chiediamo semplicemente di restituirle.</div>
+  </div>
+
+  <div class="faq-item reveal">
+    <button class="faq-q">
+      Quanti canali musicali ci sono?
+      <div class="faq-arrow"></div>
+    </button>
+    <div class="faq-a">Ci sono 3 canali musicali, ognuno gestito da un DJ diverso con il proprio genere. Le cuffie cambiano colore LED in base al canale selezionato, così puoi facilmente vedere quale frequenza stanno ascoltando gli altri.</div>
+  </div>
+
+  <div class="faq-item reveal">
+    <button class="faq-q">
+      Chi organizza l'evento?
+      <div class="faq-arrow"></div>
+    </button>
+    <div class="faq-a">La Notte Rossa è organizzata dal Comitato locale della Croce Rossa Italiana di Jesi. L'evento nasce con l'obiettivo di raccogliere fondi per supportare le attività umanitarie e di soccorso del comitato sul territorio.</div>
+  </div>
+
+  <div class="faq-item reveal">
+    <button class="faq-q">
+      Dove si svolge l'evento?
+      <div class="faq-arrow"></div>
+    </button>
+    <div class="faq-a">L'evento si svolge a Jesi (AN). La location esatta sarà comunicata nelle prossime settimane sui nostri canali social e via email a chi ha acquistato il biglietto. Rimani aggiornato!</div>
+  </div>
+
+  <div class="faq-item reveal">
+    <button class="faq-q">
+      Come faccio ad acquistare il biglietto?
+      <div class="faq-arrow"></div>
+    </button>
+    <div class="faq-a">Il sistema di prenotazione sarà attivo a breve. Puoi seguire la pagina social della CRI Jesi per ricevere l'avviso non appena i biglietti saranno disponibili. I posti sono limitati.</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="img/CRI_Jesi_Logo_Orizzontale.jpg" alt="Croce Rossa Italiana — Comitato di Jesi" />
+          </div>
+        </div>
+        <p class="footer-desc">
+          Una serata di musica, cuffie e solidarietà organizzata dalla Croce Rossa Italiana — Comitato di Jesi. Sabato 19 giugno 2026.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Evento</h4>
+        <ul>
+          <li><a href="#about">L'evento</a></li>
+          <li><a href="#info">Dettagli</a></li>
+          <li><a href="#tickets">Biglietti</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>CRI Jesi</h4>
+        <ul>
+          <li><a href="#">Sito CRI Jesi</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Contatti</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Croce Rossa Italiana — Comitato di Jesi. Tutti i diritti riservati.</p>
+      <div class="footer-cri-badge">
+        <img src="img/Emblema_CRI.svg" alt="Emblema CRI" />
+        Croce Rossa Italiana
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Particles
+  (function() {
+    const container = document.getElementById('particles');
+    const count = 28;
+    for (let i = 0; i < count; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      const size = Math.random() * 4 + 2;
+      p.style.cssText = `
+        width: ${size}px;
+        height: ${size}px;
+        left: ${Math.random() * 100}%;
+        bottom: -10px;
+        animation-duration: ${Math.random() * 12 + 8}s;
+        animation-delay: ${Math.random() * 10}s;
+        opacity: 0;
+      `;
+      container.appendChild(p);
+    }
+  })();
+
+  // ── Countdown
+  (function() {
+    const target = new Date('2026-06-19T21:00:00');
+    const els = {
+      d: document.getElementById('cd-days'),
+      h: document.getElementById('cd-hours'),
+      m: document.getElementById('cd-minutes'),
+      s: document.getElementById('cd-seconds'),
+    };
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function tick() {
+      const now = new Date();
+      const diff = target - now;
+      if (diff <= 0) {
+        els.d.textContent = els.h.textContent = els.m.textContent = els.s.textContent = '00';
+        return;
+      }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      els.d.textContent = pad(d);
+      els.h.textContent = pad(h);
+      els.m.textContent = pad(m);
+      els.s.textContent = pad(s);
+    }
+
+    tick();
+    setInterval(tick, 1000);
+  })();
+
+  // ── Scroll reveal
+  (function() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  })();
+
+  // ── FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // ── Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
+
+  // ── Nav active on scroll
+  (function() {
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.style.background = window.scrollY > 50
+        ? 'rgba(10,10,10,0.95)'
+        : 'rgba(10,10,10,0.85)';
+    });
+  })();
+</script>
+</body>
+</html>
