@@ -98,7 +98,7 @@ export function createFooter(data: EventData): HTMLElement {
       <img src="${criLogoUrl}" alt="Croce Rossa Italiana – Comitato di Jesi" />
     </div>
     <div class="footer-socials">${socialsHtml}</div>
-    <p class="footer-copy">© 2025 Giovani CRI Jesi · Evento benefico · Tutti i diritti riservati</p>
+    <p class="footer-copy">© 2026 CRI Jesi</p>
   `;
 
   return footer;
