@@ -16,8 +16,8 @@ export interface EventData {
 }
 
 export const event: EventData = {
-  topTitle: 'NOTTE',
-  mainTitle: 'ROSSA',
+  topTitle: 'SILENT',
+  mainTitle: 'PARTY',
   date: 'SAB. 20 GIUGNO',
   location: 'ANTISTADIO, JESI',
   timeStart: 'FROM 10:30 PM',
@@ -27,5 +27,5 @@ export const event: EventData = {
     { handle: '@GIOVANICRIJESI', url: '#' },
     { handle: '@CONSULTAGIOVANIJESI', url: '#' },
   ],
-  ticketUrl: '#',
+  ticketUrl: 'https://www.eventbrite.it/e/biglietti-silent-party-1991007242258',
 };
