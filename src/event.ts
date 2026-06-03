@@ -18,11 +18,11 @@ export interface EventData {
 export const event: EventData = {
   topTitle: 'SILENT',
   mainTitle: 'PARTY',
-  date: 'SAB. 20 GIUGNO',
+  date: 'Sab. 20 GIUGNO',
   location: 'ANTISTADIO, JESI',
-  timeStart: 'FROM 10:30 PM',
+  timeStart: 'FROM 22:30',
   timeEnd: "'TILL LATE",
-  lineup: ['AIDEM DJ', 'LA REGINA', 'DJ MORRU'],
+  lineup: ['LA REGINA', 'DJ MORRU'],
   socials: [
     { handle: '@GIOVANICRIJESI', url: '#' },
     { handle: '@CONSULTAGIOVANIJESI', url: '#' },
