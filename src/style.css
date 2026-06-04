@@ -273,6 +273,9 @@ body { font-family: 'Barlow Condensed', sans-serif; }
              glowPulse 3.5s ease-in-out 2s infinite;
 }
 
+/* Lilita One: T and Y strokes touch at large sizes — nudge only the TY gap */
+.kern-ty { letter-spacing: 0.04em; }
+
 @media (min-width: 480px) {
   .t-main { -webkit-text-stroke: 2px var(--red); font-size: 30vw; top: -1rem; }
 }

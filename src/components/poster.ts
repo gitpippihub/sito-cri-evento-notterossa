@@ -26,7 +26,7 @@ export function createPoster(data: EventData): HTMLElement {
       <h1 class="t-top">${data.topTitle}</h1>
 
       <div class="mid">
-        <div class="t-main" aria-hidden="true">${data.mainTitle}</div>
+        <div class="t-main" aria-hidden="true">${data.mainTitle.replace(/T(?=Y)/g, '<span class="kern-ty">T</span>')}</div>
         <div class="photo-wrap">
           <img src="${photoUrl}" alt="Persone che ballano con le cuffie alla Notte Rossa" />
         </div>
