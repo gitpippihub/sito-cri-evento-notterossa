@@ -1,4 +1,10 @@
 {
   "outputDirectory": "dist",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "redirects": [
+    { "source": "/", "destination": "/silentparty/", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/silentparty", "destination": "/index.html" },
+    { "source": "/silentparty/(.*)", "destination": "/index.html" }
+  ]
 }
