@@ -1,5 +1,5 @@
 import type { EventData } from '../event';
-import { criLogoUrl } from '../assets';
+import { emblemaUrl, consultaLogoUrl } from '../assets';
 
 export function createDetails(data: EventData): HTMLElement {
   const section = document.createElement('section');
@@ -93,11 +93,21 @@ export function createFooter(data: EventData): HTMLElement {
     .map((s) => `<a href="${s.url}">${s.handle}</a>`)
     .join('');
 
+  const logoUrls = [emblemaUrl, consultaLogoUrl];
+  const logoAlts = ['Emblema CRI Jesi', 'Consulta Giovani Jesi'];
+
+  const socialsWithLogos = data.socials
+    .map((s, i) => `
+      <div class="footer-social-item">
+        <div class="footer-logo-wrap">
+          <img src="${logoUrls[i]}" alt="${logoAlts[i]}" />
+        </div>
+        <a href="${s.url}">${s.handle}</a>
+      </div>`)
+    .join('');
+
   footer.innerHTML = `
-    <div class="footer-branding">
-      <img src="${criLogoUrl}" alt="Croce Rossa Italiana – Comitato di Jesi" />
-    </div>
-    <div class="footer-socials">${socialsHtml}</div>
+    <div class="footer-socials">${socialsWithLogos}</div>
     <p class="footer-copy">© 2026 CRI Jesi</p>
   `;
 
