@@ -20,7 +20,7 @@ export const event: EventData = {
   mainTitle: 'PARTY',
   date: 'Sab. 20 GIUGNO',
   location: 'ANTISTADIO, JESI',
-  timeStart: 'FROM 22:30',
+  timeStart: 'FROM 22:00',
   timeEnd: "'TILL LATE",
   lineup: ['LA REGINA', 'DJ MORRU'],
   socials: [

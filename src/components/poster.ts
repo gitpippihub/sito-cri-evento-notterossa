@@ -18,11 +18,6 @@ export function createPoster(data: EventData): HTMLElement {
     <div class="poster-overlay" aria-hidden="true"></div>
 
     <div class="poster-inner">
-      <header class="cri-logo">
-        <img src="${emblemaUrl}" alt="Emblema Croce Rossa Italiana" />
-        <div class="cri-logo-text">Croce Rossa Italiana<br>Comitato di Jesi</div>
-      </header>
-
       <h1 class="t-top">${data.topTitle}</h1>
 
       <div class="mid">
