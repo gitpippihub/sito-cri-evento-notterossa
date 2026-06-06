@@ -29,7 +29,7 @@ export function createDetails(data: EventData): HTMLElement {
       <!-- Description -->
       <p class="details-desc" data-anim>
         Una serata unica nel cuore di Jesi: musica, energia e cuffie wireless per tutti.
-        Tre canali, tre generi, un'unica pista. Balli al ritmo che vuoi tu —
+        Due canali, due generi, un'unica pista. Balli al ritmo che vuoi tu —
         senza disturbare nessuno, ma coinvolgendo tutti.
       </p>
 
