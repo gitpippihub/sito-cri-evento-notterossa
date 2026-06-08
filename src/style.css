@@ -224,7 +224,7 @@ body { font-family: 'Barlow Condensed', sans-serif; }
 }
 
 /* ============================================================
-   CORNER LOGOS – Jesi Educa (left) · Comune (right)
+   CORNER LOGOS
    ============================================================ */
 
 .corner-logo {
@@ -830,7 +830,6 @@ body { font-family: 'Barlow Condensed', sans-serif; }
   display: block;
 }
 
-.footer-social-item--jesieduca img { height: 3rem; }
 .footer-social-item--comune img {
   height: 3.5rem;
   background: #fff;
@@ -847,7 +846,6 @@ body { font-family: 'Barlow Condensed', sans-serif; }
 @media (min-width: 640px) {
   .footer-logo-wrap { height: 7rem; }
   .footer-social-item img { height: 7rem; }
-  .footer-social-item--jesieduca img { height: 3.8rem; }
   .footer-social-item--comune img { height: 4.2rem; padding: 0.3rem 0.5rem; }
   .footer-social-placeholder { height: 0.76rem; }
 }
