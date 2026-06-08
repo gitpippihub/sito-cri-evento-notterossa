@@ -24,8 +24,8 @@ export const event: EventData = {
   timeEnd: "'TILL LATE",
   lineup: ['LA REGINA', 'DJ MORRU'],
   socials: [
-    { handle: '@GIOVANICRIJESI', url: '#' },
-    { handle: '@CONSULTAGIOVANIJESI', url: '#' },
+    { handle: '@GIOVANICRIJESI', url: 'https://www.instagram.com/giovanicrijesi' },
+    { handle: '@CONSULTAGIOVANIJESI', url: 'https://www.instagram.com/consultagiovanijesi' },
   ],
   ticketUrl: 'https://www.eventbrite.it/e/biglietti-silent-party-1991007242258',
 };
