@@ -224,6 +224,33 @@ body { font-family: 'Barlow Condensed', sans-serif; }
 }
 
 /* ============================================================
+   CORNER LOGOS – Jesi Educa (left) · Comune (right)
+   ============================================================ */
+
+.corner-logo {
+  position: absolute;
+  top: 1rem;
+  z-index: 10;
+  height: 4rem;
+  width: auto;
+  filter: drop-shadow(0 1px 6px rgba(0,0,0,0.70));
+}
+.corner-logo--left  { left:  1rem; }
+.corner-logo--right { right: 1rem; }
+
+@media (min-width: 480px) {
+  .corner-logo { height: 4.4rem; }
+}
+@media (min-width: 640px) {
+  .corner-logo { height: 5.2rem; top: 1.2rem; }
+  .corner-logo--right { right: 1.4rem; }
+}
+@media (min-width: 900px) {
+  .corner-logo { height: 6rem; top: 1.4rem; }
+  .corner-logo--right { right: 2rem; }
+}
+
+/* ============================================================
    NOTTE  – sized so 5 chars of Anton fill ~90% of container
    ============================================================ */
 
@@ -799,22 +826,23 @@ body { font-family: 'Barlow Condensed', sans-serif; }
 
 .footer-social-item img {
   width: auto;
-  height: auto;
+  height: 5.5rem;
   display: block;
 }
 
-.footer-social-item:first-child img {
-  height: 5.5rem;
-}
+.footer-social-item--jesieduca img { height: 3rem; }
 
-.footer-social-item:last-child img {
-  height: 5.5rem;
+.footer-social-placeholder {
+  display: block;
+  height: 0.62rem;
+  line-height: 1;
 }
 
 @media (min-width: 640px) {
   .footer-logo-wrap { height: 7rem; }
-  .footer-social-item:first-child img { height: 7rem; }
-  .footer-social-item:last-child img { height: 7rem; }
+  .footer-social-item img { height: 7rem; }
+  .footer-social-item--jesieduca img { height: 3.8rem; }
+  .footer-social-placeholder { height: 0.76rem; }
 }
 
 .footer-socials a {
