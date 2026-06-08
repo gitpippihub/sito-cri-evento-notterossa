@@ -54,7 +54,7 @@ export function createPoster(data: EventData): HTMLElement {
         </div>
         <div class="social-row">
           <a href="${data.socials[0].url}" class="social-handle">${data.socials[0].handle}</a>
-          <a href="${data.ticketUrl}" class="social-prevendita">PREVENDITA ONLINE</a>
+          <a href="${data.ticketUrl}" class="social-prevendita">PRENOTA ONLINE</a>
           <a href="${data.socials[1].url}" class="social-handle">${data.socials[1].handle}</a>
         </div>
       </div>
