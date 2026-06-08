@@ -831,6 +831,12 @@ body { font-family: 'Barlow Condensed', sans-serif; }
 }
 
 .footer-social-item--jesieduca img { height: 3rem; }
+.footer-social-item--comune img {
+  height: 3.5rem;
+  background: #fff;
+  border-radius: 0.35rem;
+  padding: 0.25rem 0.4rem;
+}
 
 .footer-social-placeholder {
   display: block;
@@ -842,6 +848,7 @@ body { font-family: 'Barlow Condensed', sans-serif; }
   .footer-logo-wrap { height: 7rem; }
   .footer-social-item img { height: 7rem; }
   .footer-social-item--jesieduca img { height: 3.8rem; }
+  .footer-social-item--comune img { height: 4.2rem; padding: 0.3rem 0.5rem; }
   .footer-social-placeholder { height: 0.76rem; }
 }
 

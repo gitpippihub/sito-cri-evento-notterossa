@@ -1,5 +1,5 @@
 import type { EventData } from '../event';
-import { bgUrl, photoUrl, emblemaUrl, comuneLogoUrl } from '../assets';
+import { bgUrl, photoUrl, emblemaUrl } from '../assets';
 
 export function createPoster(data: EventData): HTMLElement {
   const section = document.createElement('section');
@@ -16,8 +16,6 @@ export function createPoster(data: EventData): HTMLElement {
   section.innerHTML = `
     <div class="poster-bg" style="background-image:url(${bgUrl})"></div>
     <div class="poster-overlay" aria-hidden="true"></div>
-
-    <img class="corner-logo corner-logo--right" src="${comuneLogoUrl}" alt="Comune di Jesi" />
 
     <div class="poster-inner">
       <h1 class="t-top">${data.topTitle}</h1>

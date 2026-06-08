@@ -1,5 +1,5 @@
 import type { EventData } from '../event';
-import { emblemaUrl, consultaLogoUrl, jesieducaUrl } from '../assets';
+import { emblemaUrl, consultaLogoUrl, jesieducaUrl, comuneLogoUrl } from '../assets';
 
 export function createDetails(data: EventData): HTMLElement {
   const section = document.createElement('section');
@@ -108,6 +108,12 @@ export function createFooter(data: EventData): HTMLElement {
 
   footer.innerHTML = `
     <div class="footer-socials">
+      <div class="footer-social-item footer-social-item--comune">
+        <div class="footer-logo-wrap">
+          <img src="${comuneLogoUrl}" alt="Comune di Jesi" />
+        </div>
+        <a href="https://www.instagram.com/comunejesi" target="_blank" rel="noopener noreferrer">@comunejesi</a>
+      </div>
       ${socialsWithLogos}
       <div class="footer-social-item footer-social-item--jesieduca">
         <div class="footer-logo-wrap">
